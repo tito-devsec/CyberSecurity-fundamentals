@@ -234,13 +234,4 @@ After studying this guide you should be able to:
 
 **Tito Oscar Mwaisengela**  
 Junior → Intermediate Cybersecurity Practitioner  
-**GitHub:** https://github.com/tito-devsec/
-
----
-
-If you want, I can now:
-1. Create these files in the repository `tito-devsec/CyberSecurty-fundamentals` (please confirm spelling and that the repo exists), or  
-2. Provide these files as a ZIP you can upload, or  
-3. Provide the exact git commands to create the repo locally and push.
-
-Which option do you prefer?
+**GitHub:** https://github.com/tito-devse
