@@ -1,237 +1,75 @@
-# Cybersecurity Fundamentals: A Comprehensive Guide
+# Cybersecurity Fundamentals: A Comprehensive Handbook
 
 **From Foundations to Authorized Penetration Testing**
 
-**Author:** Tito Oscar Mwaisengela  
-**GitHub:** https://github.com/tito-devsec/  
-**Role:** Computer Science Student (UDSM)  
-**Specialization:** Cybersecurity • Authorized Penetration Testing • Secure Software  
-**Level:** Beginner → Intermediate
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Category: Cybersecurity](https://img.shields.io/badge/Category-Cybersecurity-blue.svg)]()
+[![Level: Beginner to Intermediate](https://img.shields.io/badge/Level-Beginner%20%E2%86%92%20Intermediate-green.svg)]()
 
 ---
 
-## Introduction
+## 👤 Author Information
 
-Cybersecurity is about protecting systems, data, and people by understanding how attacks occur and how to prevent them.
-
-This guide is designed to:
-- Build strong cybersecurity fundamentals
-- Help beginners understand security concepts clearly
-- Help intermediate learners connect theory to practical attacks
-- Prepare readers for authorized penetration testing, CTFs, and real-world security work
-
-> ⚠️ All techniques discussed here are for educational and authorized testing only. Never test systems without written permission.
+*   **Author:** Tito Oscar Mwaisengela
+*   **Role:** Computer Science Student (UDSM)
+*   **Specialization:** Cybersecurity • Authorized Penetration Testing • Secure Software
+*   **Level:** Beginner → Intermediate
+*   **GitHub:** [tito-devsec](https://github.com/tito-devsec/)
 
 ---
 
-## 1. The CIA Triad — Core Security Principles
+## 📚 Introduction
 
-The CIA Triad is the foundation of cybersecurity decisions. Every attack and defense maps back to one or more of these principles.
+### Purpose
+This repository serves as a structured, industry-grade handbook for individuals transitioning from foundational knowledge to practical, authorized penetration testing. It bridges the gap between theoretical security concepts and real-world application, providing a deep technical breakdown of vulnerabilities, methodologies, and mitigation patterns.
 
-| Principle | Meaning | Real-World Example | Tools / Commands |
-| --- | --- | --- | --- |
-| Confidentiality | Only authorized users can access data | Encrypting stored passwords | `openssl`, `gpg` |
-| Integrity | Data cannot be altered without detection | Detecting tampered files | `sha256sum`, `gpg --verify` |
-| Availability | Systems are accessible when needed | Protection against DDoS | `ping`, `hping3` |
+### Ethical Use Statement
+The content within this repository is strictly for **educational purposes** and **authorized security testing**. The goal is to empower security professionals and developers to build more resilient systems by understanding the attacker's mindset and techniques.
 
-Why this matters:
-- SQL Injection → breaks Confidentiality & Integrity
-- Malware → breaks Integrity & Availability
-- DDoS → breaks Availability
+### Legal Disclaimer
+> ⚠️ **WARNING:** Unauthorized access to computer systems is illegal. All testing must be performed within a strictly defined scope and with explicit, written permission from the system owner. The author of this repository assumes no liability for any misuse of the information provided herein.
 
-Practical integrity check:
-```bash
-# Create a file
-echo "sensitive_data" > secret.txt
+### Scope of Coverage
+This handbook covers web security foundations, the OWASP Top 10 (2021), professional pentesting methodologies, secure design patterns, and hands-on lab environments.
 
-# Generate hash
-sha256sum secret.txt > hash.txt
-
-# Simulate tampering
-echo "tampered_data" > secret.txt
-
-# Detect change
-sha256sum secret.txt | diff - hash.txt
-```
-If hashes differ → integrity is compromised.
+### Target Audience
+*   Junior Security Engineers
+*   Developers learning Secure Coding
+*   Entry-level Penetration Testers
+*   University-level Cybersecurity Students
 
 ---
 
-## 2. How the Web Works (And How Attackers Exploit It)
+## 📂 Repository Structure
 
-Understanding web architecture is mandatory for web security.
-
-Web request flow:
-```
-Browser → DNS → Web Server → Application → Database → Response
-```
-
-Typical steps:
-1. Browser resolves domain via DNS (`nslookup`)
-2. Browser sends HTTP/HTTPS request
-3. Web server (Apache/Nginx) receives it
-4. Application logic (PHP, Python, Node) processes the request
-5. Database query executes
-6. Response is returned
-
-Common attack points:
-
-| Layer | Attacks | Tools |
-| --- | --- | --- |
-| DNS | Subdomain takeover | `sublist3r` |
-| Web Server | Misconfiguration | `nikto` |
-| Application | SQLi, XSS | Burp Suite, OWASP ZAP |
-| Database | Data exfiltration | `sqlmap` |
+| Folder | Purpose |
+| :--- | :--- |
+| `docs/` | Detailed documentation on foundations, vulnerabilities, and scoring. |
+| `labs/` | Docker-based vulnerable environments for hands-on practice. |
+| `secure-code-examples/` | Reference implementations of secure coding patterns. |
+| `diagrams/` | Visual representations of attack flows and security architectures. |
+| `methodology/` | Structured guides for reconnaissance, enumeration, and exploitation. |
 
 ---
 
-## 3. HTTP vs HTTPS — Why Encryption Matters
+## 🛠️ Getting Started
 
-| Protocol | Port | Security | Risk |
-| --- | ---: | --- | --- |
-| HTTP | 80 | Plaintext | Credentials/sniffing |
-| HTTPS | 443 | TLS-encrypted | Safer when properly configured |
+To get the most out of this handbook, it is recommended to follow the sections in order:
 
-TLS inspection (authorized):
-```bash
-openssl s_client -connect target.com:443
-nmap --script ssl-enum-ciphers -p 443 target.com
-sslscan target.com
-```
-Weak ciphers or misconfigured TLS increase risk of MITM attacks.
+1.  **Foundations:** Read `docs/01-foundations.md` to understand HTTP, CIA, and Threat Modeling.
+2.  **Vulnerabilities:** Study the OWASP Top 10 breakdowns in `docs/02-owasp-top-10.md`.
+3.  **Methodology:** Follow the professional pentesting steps in `methodology/README.md`.
+4.  **Hands-on Labs:** Deploy the vulnerable environment in `labs/README.md` to practice your skills.
 
 ---
 
-## 4. Core Internet Protocols & Attacker Perspective
+## 🔗 References & Resources
 
-| Protocol | Port | Purpose | Example Attack |
-| --- | ---: | --- | --- |
-| TCP | — | Reliable transport | SYN flood |
-| DNS | 53 | Name resolution | DNS spoofing |
-| HTTP | 80 | Web | XSS, SQLi |
-| HTTPS | 443 | Secure web | TLS downgrade |
-| SSH | 22 | Remote access | Brute force |
-| SMB | 445 | File sharing | EternalBlue-style exploits |
-
-Example (authorized SYN flood test):
-```bash
-hping3 --syn -p 80 --flood target.com
-```
-Only perform such tests with explicit authorization.
+*   [OWASP Top 10:2021](https://owasp.org/www-project-top-ten/)
+*   [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
+*   [MITRE ATT&CK®](https://attack.mitre.org/)
+*   [CWE - Common Weakness Enumeration](https://cwe.mitre.org/)
 
 ---
 
-## 5. OWASP Top 10 (2021) — Explained
-
-A selection of key issues and examples:
-
-- A01 – Broken Access Control  
-  Problem: Unauthorized access to resources.  
-  Quick check:
-  ```bash
-  curl https://target.com/admin
-  ```
-  If accessible → potential high severity issue.
-
-- A02 – Cryptographic Failures  
-  Problem: Sensitive data not protected in transit or at rest.
-
-- A03 – Injection (SQLi, Command Injection)  
-  Problem: Unsanitized input allows remote code/data access.
-  Example:
-  ```bash
-  sqlmap -u "https://target.com/login.php" --forms --dbs
-  ```
-
-- A05 – Security Misconfiguration  
-  Problem: Default or exposed settings.
-  ```bash
-  dirb https://target.com
-  nmap --script http-enum target.com
-  ```
-
-- A07 – Authentication Failures  
-  Problem: Weak credential handling, session issues.
-  ```bash
-  hydra -L users.txt -P rockyou.txt target.com http-post-form "/login:..."
-  ```
-
-- A10 – SSRF  
-  Problem: Server-side requests to attacker-controlled URLs.
-  Example:
-  ```bash
-  curl "https://target.com/api?url=http://169.254.169.254"
-  ```
-  This can expose cloud instance metadata.
-
----
-
-## 6. Authorized Penetration Test Workflow (High-Level)
-
-Example (basic automation for authorized, scoped tests):
-```bash
-#!/bin/bash
-
-echo "[+] Recon"
-nmap -sC -sV target.com
-sublist3r -d target.com
-
-echo "[+] Enumeration"
-dirsearch -u https://target.com
-nikto -h https://target.com
-
-echo "[+] Vulnerability Scan"
-nuclei -u https://target.com
-
-echo "[+] Exploit Testing"
-sqlmap -u "https://target.com/search?q=*" --dbs
-```
-Always stay within scope and use written permission.
-
----
-
-## 7. Defense & Hardening (Blue Team Mindset)
-
-Security posture requires defensive controls and monitoring:
-```bash
-ufw enable
-apt install fail2ban clamav
-echo "server_tokens off;" >> /etc/nginx/nginx.conf
-```
-Defense is essential — detection, patching, and least privilege policies reduce risk.
-
----
-
-## 8. Impact Summary (Example Mapping)
-
-| Attack | CVSS | Business Impact | Detection |
-| --- | ---: | --- | --- |
-| SQLi | 9.8 | Data breach | Database logs, alerts |
-| XSS | 6.1 | Session hijack | CSP, monitoring |
-| RCE | 9.8 | Full takeover | HIDS, EDR |
-| SSRF | 8.2 | Cloud compromise | Proxy logs, anomaly detection |
-
----
-
-## Learning Outcomes
-
-After studying this guide you should be able to:
-- Understand how common attacks work
-- Identify why vulnerabilities exist
-- Conduct authorized penetration testing (ethically and within scope)
-- Produce clear CTF and lab reports
-- Build a professional cybersecurity portfolio
-
----
-
-## Ethical Notice
-
-> ⚠️ All content is for educational and authorized security testing only. Unauthorized access is illegal and unethical.
-
----
-
-## Author
-
-**Tito Oscar Mwaisengela**  
-Junior → Intermediate Cybersecurity Practitioner  
-**GitHub:** https://github.com/tito-devse
+*“Security is not a product, but a process.” — Bruce Schneier*
