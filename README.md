@@ -1,6 +1,24 @@
-# Cybersecurity Fundamentals: A Comprehensive Handbook
+<h1 align="center">🛡️ Cybersecurity Fundamentals</h1>
+<p align="center"><b>A beginner-to-intermediate handbook, from foundations to authorized penetration testing.</b></p>
 
-**From Foundations to Authorized Penetration Testing**
+<p align="center">
+  <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="MIT License" />
+  <img src="https://img.shields.io/badge/Level-Beginner%20%E2%86%92%20Intermediate-2ea44f?style=flat-square" alt="Level" />
+  <img src="https://img.shields.io/badge/Covers-OWASP%20Top%2010%20%7C%20CIA%20%7C%20Methodology-455CE9?style=flat-square" alt="Covers" />
+  <a href="https://github.com/tito-devsec/cybersecurity-fundamentals/stargazers"><img src="https://img.shields.io/github/stars/tito-devsec/cybersecurity-fundamentals?style=flat-square&color=f1c40f" alt="Stars" /></a>
+</p>
+
+<p align="center">
+  <a href="#-introduction">Introduction</a> •
+  <a href="#-repository-structure">Structure</a> •
+  <a href="#️-getting-started">Getting started</a> •
+  <a href="#-references--resources">References</a>
+</p>
+
+<p align="center"><i>If this handbook helps you, a ⭐ makes it easier for the next learner to find.</i></p>
+
+---
+
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Category: Cybersecurity](https://img.shields.io/badge/Category-Cybersecurity-blue.svg)]()
